@@ -18,7 +18,7 @@
         <div class="weather">
             <img src="rain.png" class="weather-icon">
             <h1 class="temp">22°C</h1>
-            <h3 class="City">Bangalore</h3>
+            <h3 class="city">Bangalore</h3>
             <div class="details">
                 <div class="col">
                     <img src="humidity.png">
@@ -47,8 +47,8 @@
         const searchBtn = document.querySelector(".search button");
         const weatherIcon = document.querySelector(".weather-icon");
 
-        async function checkWeather(City){
-            const response = await fetch(apiUrl + City + `&appid=${apiKey}`);
+        async function checkWeather(city){
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
             if(response.status == 404){
                 document.querySelector(".error").style.display = "block";
@@ -59,7 +59,7 @@
             var data = await response.json();
 
             document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
-            document.querySelector(".City").innerHTML = data.name;
+            document.querySelector(".city").innerHTML = data.name;
             document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
             document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
